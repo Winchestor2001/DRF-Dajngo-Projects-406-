@@ -37,3 +37,10 @@ class FruitsAPIView(APIView):
 
         else:
             return Response({"error": "index xato"}, status=status.HTTP_404_NOT_FOUND)
+        
+    def delete(self, request):
+        fruit_index = int(request.data.get('index'))
+        if len(self.fruits) > fruit_index:
+            self.fruits.pop(fruit_index)
+            return Response({"fruits": self.fruits}, status=status.HTTP_204_NO_CONTENT)
+
