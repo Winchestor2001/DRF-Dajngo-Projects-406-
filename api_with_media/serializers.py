@@ -9,5 +9,8 @@ class JoraSerializer(ModelSerializer):
         fields = '__all__'
 
 
-
-
+    def to_representation(self, instance):
+        redata = super().to_representation(instance)
+        redata['image'] = "http://127.0.0.1:8000" + instance.image.url
+        return redata
+    

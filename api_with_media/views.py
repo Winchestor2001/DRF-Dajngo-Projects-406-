@@ -6,6 +6,16 @@ from rest_framework import status
 
 
 class CreateJoraAPIView(APIView):
+
+    def get(self, request):
+        jora_list = Jora.objects.all()
+
+        if 'q' in request.GET:
+            jora_list = jora_list.filter(description__icontains=request.GET['q'])
+
+        serializer = JoraSerializer(instance=jora_list, many=True)
+
+        return Response({"Jora": serializer.data}, status=status.HTTP_202_ACCEPTED)
     
     def post(self, request):
         serializer = JoraSerializer(data=request.data)
