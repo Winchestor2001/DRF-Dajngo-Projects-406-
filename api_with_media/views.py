@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from .models import Jora
+from rest_framework.response import Response
 
-# Create your views here.
+
+class CreateJoraAPIView(APIView):
+    pass
+
+
+
+
+
+
+
