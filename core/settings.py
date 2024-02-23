@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'first_api',
     'models_with_api',
     'api_with_media',
+    'nbu_api',
 
     'rest_framework',
 ]
