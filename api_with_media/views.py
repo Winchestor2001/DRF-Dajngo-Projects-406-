@@ -3,9 +3,11 @@ from .models import Jora
 from rest_framework.response import Response
 from .serializers import JoraSerializer
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 
 class CreateJoraAPIView(APIView):
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         jora_list = Jora.objects.all()
